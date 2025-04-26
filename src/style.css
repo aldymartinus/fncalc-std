@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+.noto-sans-jp {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  margin: 0 auto;
+}
+
+hr {
+  width: 100%;
+}
+
+#app {
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header */
+#app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  color: #fff;
+  background-color: #4165ba;
+}
+
+#app-title {
+  font-weight: 700;
+}
+
+#config-btn {
+  cursor: pointer;
+  margin: 0 0.2rem 0 0;
+}
+
+/* Cart Summary */
+#cart-summary {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e1e7f5;
+}
+
+#cart-summary span {
+  color: #333;
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  font-weight: 700;
+}
+
+#cart-summary > :first-child {
+  margin: 0 0 0 0.1rem;
+}
+
+#cart-summary > :last-child {
+  margin: 0 0.1rem 0 0;
+}
+
+/* Form */
+#receipt-form {
+  margin: 0.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#receipt-form input{
+  padding: 0.3rem;
+}
+
+#receipt-form > :first-child {
+  margin: 0 0 0.2rem 0;
+}
+
+#number-input-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+#number-input-container input{
+  width: 100%;
+}
+
+#number-input-container > :first-child {
+  margin-right: 0.2rem;
+}
+
+#receipt-form input#add-btn {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Cart Section */
+#cart-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#item-list {
+  margin: 0.1rem 0.3rem;
+  height: 56.5vh;
+  border-radius: 2px;
+  border: 1px solid #b0b0b0;
+}
+
+#print-btn {
+  cursor: pointer;
+  margin: 0.2rem 0.3rem;
+  padding: 0.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+#item-details{
+  display: flex;
+  color: #333;
+  flex-direction: column;
+}
+
+#item{
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0 0.2rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid #b0b0b0;
+}
+
+#action-btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#edit-btn {
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  color: #333;
+  margin: 0 0.3rem 0 0;
+}
+
+#remove-btn { 
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  color: #333;
+}
+
+#cart-item-name {
+  font-weight: 600;
+  margin: 0 0 -0.2rem 0;
+}
+
+#price-equation {
+  font-weight: 400;
+}
+
+/* Desktop Layout Adjusment */
+@media screen and (min-width: 900px) {
+  body {
+    background-color: #f7f7f7;
+  }
+  
+  #app {
+    background-color: #fff;
+    width: 35%;
+  }
+
+  #main-section {
+    padding: 0.25rem;
+    border: 1px solid #e5e5e5;
+  }
+
+  #receipt-form {
+    margin: 0.2rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: #999;
+  }
+
+  #receipt-form input#add-btn {
+    font-size: 0.8rem;
+  }
+
+  #item-list {
+    height: 59vh;
+    margin: 0.2rem 0;
+  }
+
+  #print-btn {
+    margin: 0.2rem 0;
+  }
+
+  #cart-summary > :first-child {
+    margin: 0 0 0 0.1rem;
+  }
+  
+  #cart-summary > :last-child {
+    margin: 0 0.1rem 0 0;
+  }
+}

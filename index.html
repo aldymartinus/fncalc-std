@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FNCalc - Standard</title>
+  </head>
+  <body>
+    <div id="app" class="noto-sans-jp">
+      <header id="app-header">
+        <span id="app-title">FNCalc</span>
+        <i class="fa-solid fa-gear" id="config-btn"></i>
+      </header>
+      <div id="cart-summary">
+        <span id="item-count">Item count: 2</span>
+        <span id="current-gt">Grand total: 45.000</span>
+      </div>
+      <div id="main-section" hx-trigger="load" hx-get="/form/index.html" hx-target="#main-section" hx-swap="innerHTML"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

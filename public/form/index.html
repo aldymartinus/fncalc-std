@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/src/style.css">
+<div id="receipt-form">
+    <input type="text" name="item-name" id="item-name" placeholder="Item Name">
+    <div id="number-input-container">
+        <input type="number" name="item-qty" id="item-qty" placeholder="Quantity">
+        <input type="number" name="item-price" id="item-price" placeholder="Price">
+    </div>
+    <hr>
+    <input type="button" value="Add Item" id="add-btn">
+</div>
+<div id="cart-container">
+    <div id="item-list">
+        <div id="item">
+            <div id="item-details">
+                <span id="cart-item-name">
+                    Tissue Nice
+                </span>
+                <span id="price-equation">
+                    2 x 10.000 = 20.000
+                </span>
+            </div>
+            <div id="action-btn-container">
+                <button id="edit-btn">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <button id="remove-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+        <div id="item">
+            <div id="item-details">
+                <span id="cart-item-name">
+                    Cling
+                </span>
+                <span id="price-equation">
+                    5 x 5.000 = 25.000
+                </span>
+            </div>
+            <div id="action-btn-container">
+                <button id="edit-btn">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <button id="remove-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <button id="print-btn">Print</button>
+</div>
