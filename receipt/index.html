@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./receipt.css">
+    <title>FNCalc</title>
+</head>
+
+<body>
+    <div id="receipt-container">
+        <div id="receipt-header">
+            <span id="store-name">Lorem Store</span>
+            <span id="alt-store-name"></span>
+            <span id="address">Jl. Asphalt No.420</span>
+        </div>
+        <div id="receipt-date">
+            <span id="date">07/02/2025</span>
+            <span id="time">13:08:13</span>
+        </div>
+        <div id="item-list">
+            <div id="item"><span id="item-name">Tissue Nice x2</span>
+                <div id="price"><span id="base-price">@10,000</span><span id="subtotal">20,000</span></div>
+            </div>
+            <div id="item"><span id="item-name">Cling x5</span>
+                <div id="price"><span id="base-price">@5.000</span><span id="subtotal">25.000</span></div>
+            </div>
+        </div>
+        <div id="total">
+            <span>Total</span>
+            <span id="total-price">45.000</span>
+        </div>
+        <div id="pay">
+            <div id="paid">
+                <span>Cash</span>
+                <span id="paid-nominal">50.000</span>
+            </div>
+            <div id="change">
+                <span>Change</span>
+                <span id="change-nominal">5.000</span>
+            </div>
+        </div>
+        <div id="receipt-footer">
+            <span id="sign"> Hormat kami,</span>
+            <div id="sign-space"></div>
+        </div>
+    </div>
+    <script src="./receipt.js"></script>
+</body>
+
+</html>
