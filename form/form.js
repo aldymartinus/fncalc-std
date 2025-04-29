@@ -13,16 +13,16 @@ class FormHandler {
             price: parseInt(this._itemPriceTxt.value)
         };
         this._currentCart.push(itemDetails);
-        localStorage.setItem("current-transcation", JSON.stringify(this._currentCart));
+        localStorage.setItem("current-transaction", JSON.stringify(this._currentCart));
     };
 
     removeItem(index) {
-        this._currentCart.splice(index - 1, 1);
+        this._currentCart.splice(index, 1);
         this.renderItemList();
     };
 
     editItem(index) {
-        const {name, qty, price} = this._currentCart[index - 1];
+        const {name, qty, price} = this._currentCart[index];
         this.removeItem(index);
 
         this._itemNameTxt.value = name;
@@ -61,24 +61,26 @@ class FormHandler {
             const itemContainer = newElement('div', 'item');
             const itemDetails = newElement('div', 'item-details');
             const actionBtnContainer = newElement('div', 'action-btn-container');
-    
+
             // Item Details
             const itemName = newElement('span', 'cart-item-name', item.name);
             const equation = `${item.qty} x ${item.price} = ${item.qty * item.price}`;
             const priceEquation = newElement('span', 'price-equation', equation);
 
             // Action Buttons
-            const editIcon = `<i class="${index + 1} fa-solid fa-pen"></i>`;
-            const removeIcon = `<i class="${index + 1} fa-solid fa-trash"></i>`;
-            const editBtn = newElement('button', 'edit-btn', editIcon, index + 1);
-            const removeBtn = newElement('button', 'remove-btn', removeIcon, index + 1);
+            const editIcon = '<i class="fa-solid fa-pen"></i>';
+            const removeIcon = '<i class="fa-solid fa-trash"></i>';
+            const editBtn = newElement('button', 'edit-btn', editIcon);
+            editBtn.dataset.index = index;
+            const removeBtn = newElement('button', 'remove-btn', removeIcon);
+            removeBtn.dataset.index = index;
 
             editBtn.addEventListener('click', (e) => {
-                this.editItem(e.target.classList[0]);
+                this.editItem(e.currentTarget.dataset.index);            
             });
             
             removeBtn.addEventListener('click', (e) => {
-                this.removeItem(e.target.classList[0]);
+                this.removeItem(e.currentTarget.dataset.index);
             });
 
             itemDetails.appendChild(itemName);
