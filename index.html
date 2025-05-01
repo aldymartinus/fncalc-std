@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FNCalc - Standard</title>
@@ -19,7 +20,7 @@
         <span id="item-count">Item count:</span>
         <span id="current-gt">Grand total:</span>
       </div>
-      <div id="main-section" hx-trigger="load" hx-get="/form/index.html" hx-target="#main-section" hx-swap="innerHTML"></div>
+      <div id="main-section" hx-trigger="load" hx-get="/form/" hx-target="#main-section" hx-swap="innerHTML"></div>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
