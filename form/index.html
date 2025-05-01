@@ -2,21 +2,24 @@
 <dialog id="checkout-prompt">
     <span id="final-gt">Enter Paid Amount</span>
     <div id="prompt-input">
-        <input type="number" id="paid-amount">
-        <button id="proceed-btn">Print Receipt</button>
+        <input type="text" id="paid-amount" inputmode="numeric">
+        <div id="dialog-btn-container">
+            <button id="print-btn">Print</button>
+            <button id="cancel-btn">Cancel</button>
+        </div>
     </div>
 </dialog>
 <div id="receipt-form">
     <input type="text" name="item-name" id="item-name" placeholder="Item Name">
     <div id="number-input-container">
         <input type="number" name="item-qty" id="item-qty" placeholder="Quantity">
-        <input type="number" name="item-price" id="item-price" placeholder="Price">
+        <input type="text" name="item-price" id="item-price" placeholder="Price" inputmode="numeric">
     </div>
     <hr>
     <input type="button" value="Add Item" id="add-btn">
 </div>
 <div id="cart-container">
     <div id="item-list"></div>
-    <button id="print-btn">Proceed</button>
+    <button id="proceed-btn">Proceed</button>
 </div>
 <script src="./form/form.js"></script>

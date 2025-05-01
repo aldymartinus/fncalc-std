@@ -1,8 +1,11 @@
 class FormHandler {
     constructor() {
-        this._itemNameTxt = document.getElementById('item-name');
-        this._itemQtyTxt = document.getElementById('item-qty');
-        this._itemPriceTxt = document.getElementById('item-price');
+        this._itemNameTxt = $('item-name');
+        this._itemQtyTxt = $('item-qty');
+        this._itemPriceTxt = $('item-price');
+        this._paidNominal = $('paid-amount');
+
+        this._currentGT = 0;
         this._currentCart = [];
     };
 
@@ -10,8 +13,10 @@ class FormHandler {
         const itemDetails = {
             name: this._itemNameTxt.value,
             qty: parseInt(this._itemQtyTxt.value),
-            price: parseInt(this._itemPriceTxt.value)
+            price: parseInt(this._itemPriceTxt.value.replace(/,/g, ""))
         };
+
+        this.clearForm();
         this._currentCart.push(itemDetails);
         localStorage.setItem("current-transaction", JSON.stringify(this._currentCart));
     };
@@ -40,9 +45,30 @@ class FormHandler {
                return arr[0] + grandTotal(arr.slice(1));
             } 
         };
-
+        
+        this._currentGT = grandTotal(this._currentCart.map(i => i.price * i.qty));
         $('item-count').innerHTML = `Item count: ${itemCount}`
-        $('current-gt').innerHTML = `Grand total: ${grandTotal(this._currentCart.map(i => i.price * i.qty))}`;
+        $('current-gt').innerHTML = `Grand total: ${f(this._currentGT)}`;
+    };
+
+    checkOut() {
+        const date = new Date();
+        const currentDate = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const currentMonth = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1;
+        const currentHour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+        const currentMinutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+        const currentSeconds = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+
+        const finalCart = {
+            date: `${currentDate}/${currentMonth}/${date.getFullYear()}`,
+            time: `${currentHour}:${currentMinutes}:${currentSeconds}`,
+            items: this._currentCart,
+            grand_total: this._currentGT,
+            paid: this._paidNominal.value
+        };
+
+        localStorage.setItem('final-cart', JSON.stringify(finalCart));
+        window.open('/receipt/');
     };
 
     clearForm () {
@@ -64,7 +90,7 @@ class FormHandler {
 
             // Item Details
             const itemName = newElement('span', 'cart-item-name', item.name);
-            const equation = `${item.qty} x ${item.price} = ${item.qty * item.price}`;
+            const equation = `${item.qty} x ${f(item.price)} = ${f(item.qty * item.price)}`;
             const priceEquation = newElement('span', 'price-equation', equation);
 
             // Action Buttons
@@ -96,16 +122,42 @@ class FormHandler {
         });
 
         this.updateCartSummary();
-        this.clearForm();
     };
 };
 
 const $ = (id) => document.getElementById(id);
+const f = (cash) => new Intl.NumberFormat().format(cash);
+
 const formHandler = new FormHandler();
 
 $('add-btn').addEventListener('click', () => {
     formHandler.addItem();
     formHandler.renderItemList();
+});
+
+$('proceed-btn').addEventListener('click', () => {
+    $('checkout-prompt').style.display = 'flex';
+    $('checkout-prompt').showModal();
+});
+
+$('print-btn').addEventListener('click', () => {
+    formHandler.checkOut();
+});
+
+$('cancel-btn').addEventListener('click', () => {
+    $('paid-amount').value = '';
+    $('checkout-prompt').style.display = 'none';
+    $('checkout-prompt').close();
+});
+
+const cleavePriceInput = new Cleave('#item-price', {
+    numeral: true,
+    numeralThousandGroupStyle: 'thousand'
+});
+
+const cleaveGtInput = new Cleave('#paid-amount', {
+    numeral: true,
+    numeralThousandGroupStyle: 'thousand'
 });
 
 const newElement = (element, id, value, cls) => {
