@@ -64,7 +64,7 @@ class FormHandler {
             time: `${currentHour}:${currentMinutes}:${currentSeconds}`,
             items: this._currentCart,
             grand_total: this._currentGT,
-            paid: this._paidNominal.value
+            paid: parseInt(this._paidNominal.value.toString().replace(/,/g, ""))
         };
 
         localStorage.setItem('final-cart', JSON.stringify(finalCart));
@@ -78,6 +78,10 @@ class FormHandler {
 
         this._itemNameTxt.focus();
     }
+
+    validateNumberInput(e) {
+
+    };
 
     renderItemList() {
         $('item-list').innerHTML =  '';
