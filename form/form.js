@@ -5,6 +5,16 @@ class FormHandler {
         this._itemPriceTxt = $('item-price');
         this._paidNominal = $('paid-amount');
 
+        this._itemQtyTxt.addEventListener('keydown', e => this.validateNumberInput(e));
+        this._itemPriceTxt.addEventListener('keydown', e => {
+            if(e.key === 'Enter') $('add-btn').click();
+            this.validateNumberInput(e);
+        });
+        this._paidNominal.addEventListener('keydown', e => {
+            if(e.key === 'Enter') $('print-btn').click();
+            this.validateNumberInput(e)
+        });
+
         this._currentGT = 0;
         this._currentCart = [];
     };
@@ -52,6 +62,11 @@ class FormHandler {
     };
 
     checkOut() {
+        let paid = parseInt(this._paidNominal.value.toString().replace(/,/g, ""));
+
+        if(this._paidNominal.value === '') paid = this._currentGT;
+        if(paid < this._currentGT) return;
+
         const date = new Date();
         const currentDate = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
         const currentMonth = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1;
@@ -64,7 +79,7 @@ class FormHandler {
             time: `${currentHour}:${currentMinutes}:${currentSeconds}`,
             items: this._currentCart,
             grand_total: this._currentGT,
-            paid: parseInt(this._paidNominal.value.toString().replace(/,/g, ""))
+            paid: paid
         };
 
         localStorage.setItem('final-cart', JSON.stringify(finalCart));
@@ -80,7 +95,8 @@ class FormHandler {
     }
 
     validateNumberInput(e) {
-
+        if(e.key == 'Backspace' || e.key == 'Enter' || e.key == 'Tab') return;
+        if(e.key < '0' || e.key > '9') e.preventDefault();       
     };
 
     renderItemList() {
@@ -141,11 +157,13 @@ $('add-btn').addEventListener('click', () => {
 
 $('proceed-btn').addEventListener('click', () => {
     $('checkout-prompt').style.display = 'flex';
+    $('final-gt').innerHTML = `GT: ${f(formHandler._currentGT)}`;
     $('checkout-prompt').showModal();
 });
 
 $('print-btn').addEventListener('click', () => {
     formHandler.checkOut();
+    $('cancel-btn').click();
 });
 
 $('cancel-btn').addEventListener('click', () => {
@@ -163,6 +181,8 @@ const cleaveGtInput = new Cleave('#paid-amount', {
     numeral: true,
     numeralThousandGroupStyle: 'thousand'
 });
+
+
 
 const newElement = (element, id, value, cls) => {
     const el = document.createElement(element);
