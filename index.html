@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
@@ -20,8 +20,8 @@
         <span id="item-count">Item count:</span>
         <span id="current-gt">Grand total:</span>
       </div>
-      <div id="main-section" hx-trigger="load" hx-get="/form/" hx-target="#main-section" hx-swap="innerHTML"></div>
+      <div id="main-section" hx-trigger="load" hx-get="./form/" hx-target="#main-section" hx-swap="innerHTML"></div>
     </div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

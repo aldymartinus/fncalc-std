@@ -83,7 +83,7 @@ class FormHandler {
         };
 
         localStorage.setItem('final-cart', JSON.stringify(finalCart));
-        window.open('/receipt/');
+        window.open('./receipt/');
     };
 
     clearForm () {
