@@ -120,10 +120,24 @@ dialog::backdrop {
 }
 
 #receipt-form input#add-btn {
+  width: 87%;
   cursor: pointer;
   padding: 0.5rem;
   font-weight: 600;
   color: #333;
+}
+
+#clear-form-btn {
+  width: 13%;
+  margin: 0 0.2rem 0 0;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.btn-group {
+  display: flex;
 }
 
 /* Cart Section */
@@ -140,8 +154,18 @@ dialog::backdrop {
 }
 
 #proceed-btn {
+  width: 87%;
   cursor: pointer;
-  margin: 0.2rem 0.3rem;
+  margin: 0.2rem 0.3rem 0.2rem 0;
+  padding: 0.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+#clear-cart-btn {
+  width: 13%;
+  cursor: pointer;
+  margin: 0.2rem 0.2rem 0.2rem 0.3rem;
   padding: 0.7rem;
   font-weight: 600;
   color: #333;
@@ -261,8 +285,12 @@ dialog::backdrop {
     font-size: 0.8rem;
   }
 
+  #clear-cart-btn {
+    margin: 0.2rem 0.2rem 0.2rem 0.05rem;
+  }
+
   #item-list {
-    height: 59.5vh;
+    height: 59.4vh;
     margin: 0.2rem 0;
   }
 
