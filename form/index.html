@@ -16,10 +16,20 @@
         <input type="text" name="item-price" id="item-price" placeholder="Price" inputmode="numeric">
     </div>
     <hr>
-    <input type="button" value="Add Item" id="add-btn">
+    <div class="btn-group">
+        <button id="clear-form-btn">
+            <i class="fa-solid fa-eraser"></i>
+        </button>
+        <input type="button" value="Add Item" id="add-btn">
+    </div>
 </div>
 <div id="cart-container">
     <div id="item-list"></div>
-    <button id="proceed-btn">Proceed</button>
+    <div class="btn-group">
+        <button id="clear-cart-btn">
+            <i class="fa-solid fa-broom"></i>
+        </button>
+        <button id="proceed-btn">Proceed</button>
+    </div>
 </div>
 <script type="module" src="/form/form.js"></script>

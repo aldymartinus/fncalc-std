@@ -19,7 +19,7 @@ class FormHandler {
         this._currentCart = [];
     };
 
-    addItem() {
+    addItem() {        
         const itemDetails = {
             name: this._itemNameTxt.value,
             qty: parseInt(this._itemQtyTxt.value),
