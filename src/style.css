@@ -5,6 +5,7 @@
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  height: 0%;
 }
 
 body {
@@ -148,7 +149,7 @@ dialog::backdrop {
 
 #item-list {
   margin: 0.1rem 0.3rem;
-  height: 57vh;
+  height: 55.5vh;
   border-radius: 2px;
   border: 1px solid #b0b0b0;
 }
@@ -241,11 +242,23 @@ dialog::backdrop {
   flex-direction: column;
 }
 
+/* Config Modal Menu*/
+#menu-list {
+  border-radius: 2px;
+  height: 1.5rem;
+  cursor: pointer;
+  min-width: 20%;   
+  width: auto;         
+  max-width: 100%;
+  text-align: center; 
+}
 
 /* Desktop Layout Adjusment */
 @media screen and (min-width: 900px) {
   body {
     background-color: #f7f7f7;
+    height: 99.9vh;
+    overflow: hidden;
   }
 
   input[type=number]::-webkit-inner-spin-button,
@@ -259,11 +272,13 @@ dialog::backdrop {
   }
   
   #app {
+    height: 100%;
     background-color: #fff;
     width: 35%;
   }
 
   #main-section {
+    height: 92.5%;
     padding: 0.25rem;
     border: 1px solid #e5e5e5;
   }
@@ -275,7 +290,6 @@ dialog::backdrop {
   }
 
   hr {
-    width: 100%;
     border: none;
     height: 1px;
     background-color: #999;
@@ -290,7 +304,6 @@ dialog::backdrop {
   }
 
   #item-list {
-    height: 59.4vh;
     margin: 0.2rem 0;
   }
 
@@ -299,7 +312,12 @@ dialog::backdrop {
   }
 
   #cart-summary span {
+    margin: 0 auto;
     font-size: 0.9rem;
+  }
+
+  #cart-summary {
+    margin: -0.25rem -0.25rem 0.25rem -0.25rem;
   }
 
   #cart-summary> :first-child {
@@ -312,5 +330,9 @@ dialog::backdrop {
 
   dialog {
     top: -25%;
+  }
+
+  #menu-list {
+    border-radius: 0;
   }
 }
