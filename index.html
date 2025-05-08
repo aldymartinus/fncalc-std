@@ -14,12 +14,17 @@
     <div id="app" class="noto-sans-jp">
       <header id="app-header">
         <span id="app-title">FNCalc</span>
-        <i class="fa-solid fa-gear" id="config-btn"></i>
+        <select id="menu-list" 
+        hx-target="#main-section" 
+        hx-swap="innerHTML"
+        >
+          <option value="/form/" selected>New Transaction</option>
+          <option value="/archive/">Transaction Archive</option>
+          <option value="/customize/">Customize Receipt</option>
+          <option value="/configuration/">Configuration</option>
+        </select>
+        <!-- <i class="fa-solid fa-gear" id="config-btn"></i> -->
       </header>
-      <div id="cart-summary">
-        <span id="item-count">Item count: 0</span>
-        <span id="current-gt">Grand total: 0</span>
-      </div>
       <div id="main-section" hx-trigger="load" hx-get="/form/" hx-target="#main-section" hx-swap="innerHTML"></div>
     </div>
     <script type="module" src="./src/main.js"></script>
