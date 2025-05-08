@@ -172,6 +172,18 @@ $('cancel-btn').addEventListener('click', () => {
     $('checkout-prompt').close();
 });
 
+$('clear-form-btn').addEventListener('click', () => {
+    formHandler.clearForm();
+});
+
+$('clear-cart-btn').addEventListener('click', () => {
+    localStorage.removeItem('current-transaction');
+    formHandler._currentCart = [];
+    formHandler.updateCartSummary();
+    $('item-list').innerHTML = '';
+    
+});
+
 const cleavePriceInput = new Cleave('#item-price', {
     numeral: true,
     numeralThousandGroupStyle: 'thousand'
@@ -181,8 +193,6 @@ const cleaveGtInput = new Cleave('#paid-amount', {
     numeral: true,
     numeralThousandGroupStyle: 'thousand'
 });
-
-
 
 const newElement = (element, id, value, cls) => {
     const el = document.createElement(element);
