@@ -257,7 +257,7 @@ dialog::backdrop {
 @media screen and (min-width: 900px) {
   body {
     background-color: #f7f7f7;
-    height: 99.9vh;
+    height: 99.7vh;
     overflow: hidden;
   }
 
@@ -334,5 +334,9 @@ dialog::backdrop {
 
   #menu-list {
     border-radius: 0;
+  }
+
+  #item-list {
+    height: 60vh;
   }
 }
