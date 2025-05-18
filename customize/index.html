@@ -1,0 +1,71 @@
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+<link rel="stylesheet" href="/public/customize/customize.css">
+<div id="receipt-container">
+    <div id="receipt-header">
+        <span id="store-name" class="selectable">Lorem Store</span>
+        <span id="alt-store-name" class="selectable"></span>
+        <span id="address" class="selectable">Jl. Asphalt No.420</span>
+    </div>
+    <div id="receipt-date" class="selectable">
+        <span id="date">01/01/2000</span>
+        <span id="time">00:00:00</span>
+    </div>
+    <div id="receipt-item-list">
+        <div id="receipt-item" class="selectable">
+            <span id="item-name">Tissue Nice x1</span>
+            <div id="price">
+                <span id="base-price">@10,000</span>
+                <span id="subtotal">10,000</span>
+            </div>
+        </div>
+        <div id="receipt-item" class="selectable">
+            <span id="item-name">Cling x2</span>
+            <div id="price">
+                <span id="base-price">@5,000</span>
+                <span id="subtotal">10,000</span>
+            </div>
+        </div>
+    </div>
+    <div id="total" class="selectable">
+        <span>Total</span>
+        <span id="total-price">20,000</span>
+    </div>
+    <div id="pay">
+        <div id="paid" class="selectable">
+            <span>Cash</span>
+            <span id="paid-nominal">50,000</span>
+        </div>
+        <div id="change" class="selectable">
+            <span>Change</span>
+            <span id="change-nominal">30,000</span>
+        </div>
+    </div>
+    <div id="receipt-footer">
+        <span id="sign"></span>
+        <div id="sign-space"></div>
+    </div>
+</div>
+<div id="config-menu-container">
+    <div id="main-menu">
+        <button id="template-btn" class="menu-btn">Template</button>
+        <button id="font-btn" class="menu-btn">Font</button>
+        <button id="layout-btn" class="menu-btn">Layout</button>
+    </div>
+    <div id="configuration-container">
+
+    </div>
+</div>
+<script type="module" src="/customize/customize.js"></script>
+
+<!-- 
+// 
+    text content
+    font size
+    font style 
+    text align
+
+    upper and bottom margin
+    spacing/padding
+
+    border
+-->

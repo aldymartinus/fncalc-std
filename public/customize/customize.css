@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'IBM PS55';
+    src: url('../../receipt/fonts/web437_ibm_ps-55_re.woff')
+    format('woff')
+}
+
+@font-face {
+    font-family: 'IBM MDA';
+    src: url('../../receipt/fonts/web437_ibm_ps-55_re.woff')
+    format('woff')
+}
+
+hr {
+    border: 1px dashed #000;
+}
+
+#receipt-container {
+    user-select: none;
+    margin: 0 auto;
+    font-family: "IBM PS55", serif;
+    width: 50%;
+    text-align: center;
+}
+
+#receipt-container * {
+    cursor: pointer;
+}
+
+#store-name {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.1rem 0;
+}
+
+#alt-store-name {
+    margin: -0.3rem 0 0.2rem 0;
+    font-weight: 100;
+    font-size: 1.5rem;
+}
+
+#address {
+    font-size: 1rem;
+    margin: 0 0 0.2rem 0;
+}
+
+#receipt-header {
+    display: flex;
+    flex-direction: column;
+}
+
+#receipt-date {
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#receipt-item {
+    margin: 0 0 0.1rem 0;
+    padding: 0.1rem 0 0.1rem 0;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    font-size: 1.15rem;
+}
+
+#price {
+    display: flex;
+    justify-content: space-between;
+}
+
+#total {
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.15rem;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#total-price {
+    font-size: 1.2rem;
+}
+
+#pay {
+    font-size: 1.15rem;
+}
+
+#paid {
+    display: flex;
+    justify-content: space-between;
+}
+
+#change {
+    display: flex;
+    justify-content: space-between;
+}
+
+#receipt-footer {
+    display: none;
+    margin: 5rem 0 0 0; 
+}
+
+#sign {
+    font-size: 2rem;
+}
+
+#sign-space {
+    height: 35rem;
+}
+
+#config-menu-container {
+    height: 100%;
+    width: 100%;
+}
+
+#main-menu {
+    margin: 1rem 0 0 0 ;
+    display: flex;
+}
+
+#main-menu button{
+    font-weight: bold;
+    padding: 0.2rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+#main-menu :nth-child(2){
+    margin: 0 0.2rem;
+}
+
+.selected-element {
+  background-color: #dbeafe;
+}
+
+#configuration-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.2rem;
+    height: 44vh;
+}
+
+@media screen and (min-width: 900px) {
+    #store-name {
+        margin: 0.3rem 0 0.1rem 0;
+    }
+
+    #configuration-container {
+    height: 47.2%;
+}
+}
