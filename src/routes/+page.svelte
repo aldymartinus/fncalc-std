@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    import Cart from "$lib/components/Transaction/Cart.svelte";
+    import Form from "$lib/components/Transaction/Form.svelte";
+    import Modal from "$lib/components/Transaction/Modal.svelte";
+    import Summary from "$lib/components/Transaction/Summary.svelte";
+</script>
+
+<Modal />
+<Summary />
+<Form />
+<Cart />
