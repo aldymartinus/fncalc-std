@@ -12,18 +12,27 @@
         </select>
     </nav>
 
-    <slot />
+    <main>
+        <slot />
+    </main>
 </div>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
     #app {
+        font-family: "Noto Sans JP", sans-serif;
         margin: 0 auto;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
         width: 100%;
         height: 90vh;
     }
 
+    main {
+        border: 1px solid #e5e5e5;
+    }
+
     nav {
+        padding: 0.2rem;
         height: 5vh;
         background-color: #4165ba;
         display: flex;
@@ -41,11 +50,11 @@
         font-size: 0.9rem;
         margin: 0 0 0 0.4rem;
         color: #fff;
-        font-weight: 600;
+        font-weight: 800;
     }
 
     #dropdown-menu {
-        margin: 0 0.5rem 0 0;
+        margin: 0 0.1rem 0 0;
     }
 
     @media screen and (min-width: 900px) {

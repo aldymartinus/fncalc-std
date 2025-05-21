@@ -14,7 +14,7 @@
     #cart-summary span {
         color: #333;
         font-size: 0.9rem;
-        padding: 0.3rem;
+        padding: 0.2rem;
         font-weight: 700;
     }
 
@@ -29,7 +29,7 @@
     @media screen and (min-width: 900px) {
         #cart-summary span {
             margin: 0 auto;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
         #cart-summary > :first-child {

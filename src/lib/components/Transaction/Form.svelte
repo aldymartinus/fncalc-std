@@ -34,7 +34,7 @@
         width: 100%;
     }
     #receipt-form {
-        margin: 0.3rem;
+        padding: 0.1rem 0.25rem 0 0.25rem;
         display: flex;
         flex-direction: column;
     }
@@ -94,7 +94,7 @@
         }
 
         #receipt-form {
-            margin: 0.2rem 0;
+            margin: 0.25rem 0;
             display: flex;
             flex-direction: column;
         }

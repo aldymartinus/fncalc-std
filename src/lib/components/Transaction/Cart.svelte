@@ -10,24 +10,28 @@
 
 <style>
     #cart-container {
+        padding: 0 0.25rem 0.15rem 0.25rem;
         display: flex;
         flex-direction: column;
     }
 
     #item-list {
-        margin: 0.1rem 0.3rem;
         height: 55.5vh;
         border-radius: 2px;
         border: 1px solid #b0b0b0;
     }
 
     #proceed-btn {
-        width: 82%;
+        width: 87%;
         cursor: pointer;
         margin: 0.2rem 0.3rem 0.2rem 0;
         padding: 0.7rem;
         font-weight: 600;
         color: #333;
+    }
+
+    .btn-group {
+        display: flex;
     }
 
     #clear-cart-btn {
@@ -91,7 +95,7 @@
         #clear-cart-btn {
             margin: 0.2rem 0.2rem 0.2rem 0.05rem;
         }
-
+        
         #item-list {
             margin: 0.2rem 0;
         }
@@ -101,7 +105,7 @@
         }
 
         #item-list {
-            height: 60vh;
+            height: 59.5vh;
         }
     }
 </style>
