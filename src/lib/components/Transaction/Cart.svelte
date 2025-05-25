@@ -1,5 +1,63 @@
+<script>
+    import { createEventDispatcher } from "svelte";
+    const dispatch = createEventDispatcher();
+    const f = (cash) => new Intl.NumberFormat().format(cash);
+
+    let { currentCart } = $props();
+
+    const removeItem = (index) => {
+        currentCart.splice(index, 1);
+    };
+
+    const editItem = (index) => {
+        const payload = {
+            name: currentCart[index].name,
+            qty: currentCart[index].qty,
+            price: currentCart[index].price
+        }
+
+        dispatch('editItem', { payload });
+
+        removeItem(index);
+    };
+</script>
+
 <div id="cart-container">
-    <div id="item-list"></div>
+    <div id="item-list">
+        {#each currentCart as item, index}
+            <div id="item">
+                <div id="item-details">
+                    <span id="cart-item-name">{item.name}</span>
+                    <span id="price-equation"
+                        >{item.qty} x {f(item.price)} = {f(item.qty *
+                            item.price)}</span
+                    >
+                </div>
+                <div id="action-btn-container">
+                    <button
+                        onclick={() => {
+                            editItem(index);
+                        }}
+                        id="edit-btn"
+                        data-index="0"
+                        aria-label="edit-btn"
+                    >
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button
+                        onclick={() => {
+                            removeItem(index);
+                        }}
+                        id="remove-btn"
+                        data-index="0"
+                        aria-label="remove-btn"
+                    >
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        {/each}
+    </div>
     <div class="btn-group">
         <button id="clear-cart-btn" aria-label="clear-cart-btn">
             <i class="fa-solid fa-broom"></i>
@@ -10,6 +68,7 @@
 
 <style>
     #cart-container {
+        margin: 0.39rem 0;
         padding: 0 0.25rem 0.15rem 0.25rem;
         display: flex;
         flex-direction: column;
@@ -24,20 +83,21 @@
     #proceed-btn {
         width: 87%;
         cursor: pointer;
-        margin: 0.2rem 0.3rem 0.2rem 0;
+        margin: 0.2rem 0 0.2rem 0;
         padding: 0.7rem;
         font-weight: 600;
         color: #333;
     }
 
     .btn-group {
+        margin: 0.1rem 0 0 0;
         display: flex;
     }
 
     #clear-cart-btn {
         width: 13%;
         cursor: pointer;
-        margin: 0.2rem 0.2rem 0.2rem 0.3rem;
+        margin: 0.2rem 0.2rem 0.2rem 0;
         padding: 0.7rem;
         font-weight: 600;
         color: #333;
@@ -92,11 +152,16 @@
     }
 
     @media screen and (min-width: 900px) {
+        #cart-container {
+            margin: 0;
+        }
+
         #clear-cart-btn {
             margin: 0.2rem 0.2rem 0.2rem 0.05rem;
         }
-        
+
         #item-list {
+            height: 59.5vh;
             margin: 0.2rem 0;
         }
 
@@ -104,8 +169,8 @@
             margin: 0.2rem 0;
         }
 
-        #item-list {
-            height: 59.5vh;
+        .btn-group {
+            margin: 0;
         }
     }
 </style>
