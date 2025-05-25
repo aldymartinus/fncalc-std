@@ -1,5 +1,28 @@
+<script>
+    let { currentCart, itemDetails } = $props();
+    
+    let nameInput;
+    let priceInput;
+
+    const addItem = () => {
+        currentCart.push({
+            name: itemDetails.name,
+            qty: itemDetails.qty,
+            price: itemDetails.price,
+        });
+
+        itemDetails.name = "";
+        itemDetails.qty = "";
+        itemDetails.price = "";
+
+        nameInput?.focus();
+    };
+</script>
+
 <div id="receipt-form">
     <input
+        bind:this={nameInput}
+        bind:value={itemDetails.name}
         type="text"
         name="item-name"
         id="item-name"
@@ -7,13 +30,16 @@
     />
     <div id="number-input-container">
         <input
+            bind:value={itemDetails.qty}
             type="number"
             name="item-qty"
             id="item-qty"
             placeholder="Quantity"
         />
         <input
-            type="text"
+            bind:this={priceInput}
+            bind:value={itemDetails.price}
+            type="number"
             name="item-price"
             id="item-price"
             placeholder="Price"
@@ -25,7 +51,7 @@
         <button id="clear-form-btn" aria-label="clear-form-btn">
             <i class="fa-solid fa-eraser"></i>
         </button>
-        <input type="button" value="Add Item" id="add-btn" />
+        <input type="button" value="Add Item" id="add-btn" onclick={addItem} />
     </div>
 </div>
 
@@ -34,6 +60,7 @@
         width: 100%;
     }
     #receipt-form {
+        margin: 0.2rem 0;
         padding: 0.1rem 0.25rem 0 0.25rem;
         display: flex;
         flex-direction: column;
