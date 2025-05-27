@@ -5,10 +5,12 @@
     import Summary from "$lib/components/Transaction/Summary.svelte";
 
     let currentCart = $state([]);
+    let checkoutState = $state(false);
+
     let itemDetails = $state({
-        name: '',
-        qty: '',
-        price: ''
+        name: "",
+        qty: "",
+        price: "",
     });
 
     const handleEdit = (e) => {
@@ -16,7 +18,18 @@
     };
 </script>
 
-<Modal />
-<Summary currentCart = {currentCart} />
+<Modal
+    bind:checkoutState
+    {currentCart}
+    on:resetModal={(e) => (checkoutState = e.detail.state)}
+/>
+<Summary {currentCart} />
 <Form bind:currentCart bind:itemDetails />
-<Cart currentCart = {currentCart} on:editItem={handleEdit} />
+<Cart
+    {currentCart}
+    bind:checkoutState
+    on:editItem={handleEdit}
+    on:checkout={(e) => {
+        checkoutState = e.detail.state;
+    }}
+/>

@@ -3,7 +3,7 @@
     const dispatch = createEventDispatcher();
     const f = (cash) => new Intl.NumberFormat().format(cash);
 
-    let { currentCart } = $props();
+    let { currentCart, checkoutState } = $props();
 
     const removeItem = (index) => {
         currentCart.splice(index, 1);
@@ -13,12 +13,20 @@
         const payload = {
             name: currentCart[index].name,
             qty: currentCart[index].qty,
-            price: currentCart[index].price
-        }
+            price: currentCart[index].price,
+        };
 
-        dispatch('editItem', { payload });
+        dispatch("editItem", { payload });
 
         removeItem(index);
+    };
+
+    const clearCart = () => {
+        currentCart.splice(0, currentCart.length);
+    };
+
+    const checkout = () => {
+        dispatch("checkout", { state: true });
     };
 </script>
 
@@ -29,8 +37,9 @@
                 <div id="item-details">
                     <span id="cart-item-name">{item.name}</span>
                     <span id="price-equation"
-                        >{item.qty} x {f(item.price)} = {f(item.qty *
-                            item.price)}</span
+                        >{item.qty} x {f(item.price)} = {f(
+                            item.qty * item.price,
+                        )}</span
                     >
                 </div>
                 <div id="action-btn-container">
@@ -59,10 +68,14 @@
         {/each}
     </div>
     <div class="btn-group">
-        <button id="clear-cart-btn" aria-label="clear-cart-btn">
+        <button
+            id="clear-cart-btn"
+            aria-label="clear-cart-btn"
+            onclick={clearCart}
+        >
             <i class="fa-solid fa-broom"></i>
         </button>
-        <button id="proceed-btn">Proceed</button>
+        <button id="proceed-btn" onclick={checkout}>Proceed</button>
     </div>
 </div>
 

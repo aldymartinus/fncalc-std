@@ -1,10 +1,35 @@
-<dialog id="checkout-prompt">
-    <span id="final-gt">Enter Paid Amount</span>
+<script>
+    import { createEventDispatcher } from "svelte";
+    const dispatch = createEventDispatcher();
+    const f = (cash) => new Intl.NumberFormat().format(cash);
+
+    let { checkoutState, currentCart } = $props();
+    let checkoutPrompt;
+    let paidAmount;
+
+    $effect(() => {
+        if (checkoutState) checkoutPrompt?.showModal();
+    });
+
+    const resetModal = () => {
+        checkoutPrompt.close();
+        dispatch("resetModal", { state: false });
+    };
+
+    const handleCheckout = () => {
+        console.log(paidAmount?.value)
+    };
+</script>
+
+<dialog id="checkout-prompt" bind:this={checkoutPrompt}>
+    <span id="final-gt"
+        >GT: {f(currentCart.reduce((acc, n) => acc + n.price, 0))}</span
+    >
     <div id="prompt-input">
-        <input type="text" id="paid-amount" inputmode="numeric" />
+        <input type="number" id="paid-amount" inputmode="numeric" bind:this={paidAmount} />
         <div id="dialog-btn-container">
-            <button id="print-btn">Print</button>
-            <button id="cancel-btn">Cancel</button>
+            <button id="print-btn" onclick={handleCheckout}>Print</button>
+            <button id="cancel-btn" onclick={resetModal}>Cancel</button>
         </div>
     </div>
 </dialog>
