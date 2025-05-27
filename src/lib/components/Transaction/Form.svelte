@@ -1,6 +1,6 @@
 <script>
     let { currentCart, itemDetails } = $props();
-    
+
     let nameInput;
     let priceInput;
 
@@ -11,11 +11,23 @@
             price: itemDetails.price,
         });
 
+        clearForm();
+    };
+
+    const clearForm = () => {
         itemDetails.name = "";
         itemDetails.qty = "";
         itemDetails.price = "";
 
         nameInput?.focus();
+    };
+
+    const validateNumberInput = (e) => {
+        if (e.target.id === "item-price") {
+            if (e.key === "Enter") addItem();
+        }
+        if (e.key == "Backspace" || e.key == "Enter" || e.key == "Tab") return;
+        if (e.key < "0" || e.key > "9") e.preventDefault();
     };
 </script>
 
@@ -31,6 +43,7 @@
     <div id="number-input-container">
         <input
             bind:value={itemDetails.qty}
+            onkeydown={validateNumberInput}
             type="number"
             name="item-qty"
             id="item-qty"
@@ -39,6 +52,7 @@
         <input
             bind:this={priceInput}
             bind:value={itemDetails.price}
+            onkeydown={validateNumberInput}
             type="number"
             name="item-price"
             id="item-price"
@@ -48,7 +62,11 @@
     </div>
     <hr />
     <div class="btn-group">
-        <button id="clear-form-btn" aria-label="clear-form-btn">
+        <button
+            id="clear-form-btn"
+            aria-label="clear-form-btn"
+            onclick={clearForm}
+        >
             <i class="fa-solid fa-eraser"></i>
         </button>
         <input type="button" value="Add Item" id="add-btn" onclick={addItem} />
