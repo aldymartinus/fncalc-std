@@ -2,16 +2,23 @@
     let { currentCart, itemDetails } = $props();
 
     let nameInput;
+    let qtyInput;
     let priceInput;
 
     const addItem = () => {
-        currentCart.push({
-            name: itemDetails.name,
-            qty: itemDetails.qty,
-            price: itemDetails.price,
-        });
+        const isFormBlank =
+            nameInput.value === "" ||
+            qtyInput.value === "" ||
+            priceInput.value === "";
+        if (!isFormBlank) {
+            currentCart.push({
+                name: itemDetails.name,
+                qty: itemDetails.qty,
+                price: itemDetails.price,
+            });
 
-        clearForm();
+            clearForm();
+        }
     };
 
     const clearForm = () => {
@@ -42,6 +49,7 @@
     />
     <div id="number-input-container">
         <input
+            bind:this={qtyInput}
             bind:value={itemDetails.qty}
             onkeydown={validateNumberInput}
             type="number"

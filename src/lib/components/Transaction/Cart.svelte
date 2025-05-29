@@ -26,7 +26,7 @@
     };
 
     const checkout = () => {
-        dispatch("checkout", { state: true });
+        if (currentCart.length > 0) dispatch("checkout", { state: true });
     };
 </script>
 

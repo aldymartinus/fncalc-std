@@ -1,4 +1,5 @@
 <script>
+    let { children } = $props();
 </script>
 
 <div id="app">
@@ -11,14 +12,13 @@
             <option value="/config">App Configuration</option>
         </select>
     </nav>
-
     <main>
-        <slot />
+        {@render children()}
     </main>
 </div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
     #app {
         font-family: "Noto Sans JP", sans-serif;

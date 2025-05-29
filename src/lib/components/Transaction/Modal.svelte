@@ -4,6 +4,9 @@
     const f = (cash) => new Intl.NumberFormat().format(cash);
 
     let { checkoutState, currentCart } = $props();
+    const currentGT = $derived(
+        currentCart.reduce((acc, n) => acc + n.price, 0),
+    );
     let checkoutPrompt;
     let paidAmount;
 
@@ -13,20 +16,61 @@
 
     const resetModal = () => {
         checkoutPrompt.close();
+        paidAmount.value = "";
         dispatch("resetModal", { state: false });
     };
 
     const handleCheckout = () => {
-        console.log(paidAmount?.value)
+        let paid = parseInt(paidAmount?.value.toString().replace(/,/g, ""));
+
+        if (paidAmount?.value == "") paid = currentGT;
+        if (paid < currentGT) {
+            paidAmount.value = "";
+            paidAmount?.focus();
+            return;
+        }
+
+        const date = new Date();
+        const currentDate =
+            date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+        const currentMonth =
+            date.getMonth() + 1 < 10
+                ? `0${date.getMonth() + 1}`
+                : date.getMonth() + 1;
+        const currentHour =
+            date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+        const currentMinutes =
+            date.getMinutes() < 10
+                ? `0${date.getMinutes()}`
+                : date.getMinutes();
+        const currentSeconds =
+            date.getSeconds() < 10
+                ? `0${date.getSeconds()}`
+                : date.getSeconds();
+
+        const finalCart = {
+            date: `${currentDate}/${currentMonth}/${date.getFullYear()}`,
+            time: `${currentHour}:${currentMinutes}:${currentSeconds}`,
+            items: currentCart,
+            grand_total: currentGT,
+            paid: paid,
+        };
+
+        localStorage.setItem("final-cart", JSON.stringify(finalCart));
+        resetModal();
+        window.open("/receipt/");
     };
 </script>
 
 <dialog id="checkout-prompt" bind:this={checkoutPrompt}>
-    <span id="final-gt"
-        >GT: {f(currentCart.reduce((acc, n) => acc + n.price, 0))}</span
-    >
+    <span id="final-gt">GT: {f(currentGT)}</span>
     <div id="prompt-input">
-        <input type="number" id="paid-amount" inputmode="numeric" bind:this={paidAmount} />
+        <input
+            type="text"
+            id="paid-amount"
+            inputmode="numeric"
+            bind:this={paidAmount}
+        />
         <div id="dialog-btn-container">
             <button id="print-btn" onclick={handleCheckout}>Print</button>
             <button id="cancel-btn" onclick={resetModal}>Cancel</button>
