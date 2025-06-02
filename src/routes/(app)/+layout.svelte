@@ -1,11 +1,19 @@
 <script>
+    import { goto } from '$app/navigation';
     let { children } = $props();
+    let selected = $state();
+    let dropdown;
+
+    const handleURL = () => {
+        console.log(selected)
+        goto(selected);
+    };
 </script>
 
 <div id="app">
     <nav>
         <span id="app-title">FNCalc</span>
-        <select id="dropdown-menu">
+        <select id="dropdown-menu" bind:this={dropdown} bind:value={selected} onchange={handleURL}>
             <option value="/">New Transaction</option>
             <option value="/customize">Customize Receipt</option>
             <option value="/archive">Transaction Archive</option>
