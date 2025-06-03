@@ -55,15 +55,29 @@
             <span id="payment-details-value">{f(paid - grand_total)}</span>                 
         </div>
         <span>=========================================</span>
-        <span id="transaction-time">Tgl. {date} {time} @aldymartinus</span>
+        <span id="transaction-time">{date} {time} aldymartinus.my.id</span>
+        <span>+---------------------------------------+</span> 
+        <div id="footer-section">
+            <span id="footer-text">TERIMA KASIH TELAH BERBELANJA</span>
+            <span>SMS/WA: 081110640888</span>
+        </div>
     </div>
 </div>
 
 <style>
+    #footer-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #footer-text {
+        margin: 0 0 0.2rem 0;
+    }
+
     #transaction-time {
+        word-spacing: 0.5rem;
         display: block;
         width: 100%;
-        /* border: 1px solid black; */
     }
 
     #payment-details-container {
@@ -88,7 +102,7 @@
     #item-name {
         word-spacing: -0.17rem;
         overflow: hidden;
-        width: 17ch;
+        width: 15ch;
         text-overflow: clip;
         white-space: nowrap;
         text-align: left;
@@ -102,11 +116,11 @@
 
     #item-price {
         text-align: right;        
-        width: 7ch;
+        width: 9ch;
     }    
 
     #item-subtotal {
-        width: 10ch;
+        width: 9ch;
         text-align: right;
     }
 
@@ -129,7 +143,7 @@
     }
 
     #store-name {
-        margin: 2rem 0 0.1rem 0;
+        margin: 3.5rem 0 0 0;
     }
 
     #address {
