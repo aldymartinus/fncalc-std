@@ -88,7 +88,7 @@
     }
 
     #item-list {
-        height: 55.5vh;
+        height: 54vh;
         border-radius: 2px;
         border: 1px solid #b0b0b0;
     }
@@ -103,14 +103,14 @@
     }
 
     .btn-group {
-        margin: 0.1rem 0 0 0;
+        margin: 0.25rem 0 -4px 0;
         display: flex;
     }
 
     #clear-cart-btn {
         width: 13%;
         cursor: pointer;
-        margin: 0.2rem 0.2rem 0.2rem 0;
+        margin: 0.2rem 0.27rem 0.2rem 0;
         padding: 0.7rem;
         font-weight: 600;
         color: #333;
@@ -170,11 +170,11 @@
         }
 
         #clear-cart-btn {
-            margin: 0.2rem 0.2rem 0.2rem 0.05rem;
+            margin: 0.2rem 0.27rem 0.2rem 0.05rem;
         }
 
         #item-list {
-            height: 59.5vh;
+            height: 58.5vh;
             margin: 0.2rem 0;
         }
 
@@ -183,7 +183,7 @@
         }
 
         .btn-group {
-            margin: 0;
+            margin: 0 0 0 0;
         }
     }
 </style>

@@ -117,14 +117,14 @@
     #receipt-form input#add-btn {
         width: 87%;
         cursor: pointer;
-        padding: 0.5rem;
+        padding: 0.7rem;
         font-weight: 600;
         color: #333;
     }
 
     #clear-form-btn {
         width: 13%;
-        margin: 0 0.2rem 0 0;
+        margin: 0 0.27rem 0 0;
         cursor: pointer;
         padding: 0.5rem;
         font-weight: 600;

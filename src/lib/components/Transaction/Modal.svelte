@@ -16,6 +16,7 @@
 
     const resetModal = () => {
         checkoutPrompt.close();
+        checkoutPrompt.style.display = 'none';
         paidAmount.value = "";
         dispatch("resetModal", { state: false });
     };
