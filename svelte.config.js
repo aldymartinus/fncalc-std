@@ -1,13 +1,7 @@
 import adapter from '@sveltejs/adapter-netlify';
 
-const config = {
+export default {
   kit: {
-    adapter: adapter({
-      pages: 'dist',
-      assets: 'dist',
-      fallback: null
-    })
+    adapter: adapter()
   }
 };
-
-export default config;
