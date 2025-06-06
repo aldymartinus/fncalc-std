@@ -55,7 +55,7 @@
             <span id="payment-details-value">{f(paid - grand_total)}</span>                 
         </div>
         <span>====================================</span>
-        <span id="transaction-time">Tgl. {date} {time} bit.ly/app</span>
+        <span id="transaction-time">Tgl. {date} {time} Dev. Aldy</span>
         <span style="letter-spacing: 0.16px;">+---------------------------------+</span> 
         <div id="footer-section">
             <span id="footer-text">TERIMA KASIH TELAH BERBELANJA</span>
@@ -135,7 +135,7 @@
     }
 
     #receipt-container {
-        margin: 0 0.6rem 0 0;
+        margin: 0 0.4rem 0 0;
         font-size: 0.85rem;
         display: flex;
         align-items: center;
