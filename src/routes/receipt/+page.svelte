@@ -5,7 +5,7 @@
     import Alps from "$lib/receipt-template/Alps.svelte";
     import Merpati from "$lib/receipt-template/Merpati.svelte";
 
-    let selectedStyle = "Alps";
+    let selectedStyle = "Default";
     const component = { Default, March, Alps, Merpati };
 
     onMount(() => {
