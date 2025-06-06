@@ -38,19 +38,19 @@
             <div id="item" style="margin: 0.2rem 0 0 0;">
                 <div id="item-qty"></div>
                 <div id="item-name">{item.name.toUpperCase()}</div>
-                <div id="item-subtotal"><b>* {f(grand_total)}</b></div>
+                <div id="item-subtotal">·  {f(grand_total)}</div>
             </div>
             {:else if index + 1 === items.length}
             <div id="item">
                 <div id="item-qty"></div>
                 <div id="item-name">{item.name.toUpperCase()}</div>
-                <div id="item-subtotal">* {f(paid)}</div>
+                <div id="item-subtotal">·  {f(paid)}</div>
             </div>
             {:else}
             <div id="item">
                 <div id="item-qty">{f(item.qty)}</div>
                 <div id="item-name">{item.name.toUpperCase()}</div>
-                <div id="item-subtotal">* {f(item.price * item.qty)}</div>
+                <div id="item-subtotal">·  {f(item.price * item.qty)}</div>
             </div>
             {/if}
         {/each}
@@ -61,12 +61,9 @@
 </div>
 
 <style>
-    #footer-text {
-        margin: 0 0 0.2rem 0;
-    }
-
     #footer-section {
-        margin: 0.2rem 0 0 0;
+        text-decoration: underline;
+        margin: 0.5rem 0 0 0;
         width: 60mm;
     }
 
@@ -117,7 +114,8 @@
     }
 
     #receipt-container {
-        font-size: 0.85rem;
+        margin: 0 0.7rem 0 0;
+        font-size: 0.90rem;
         display: flex;
         align-items: center;
         flex-direction: column;
