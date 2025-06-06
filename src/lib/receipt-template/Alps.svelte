@@ -22,12 +22,12 @@
         </span>
     </div>
     <div id="receipt-identifier">
-        <span>=========================================</span>
+        <span>====================================</span>
         <div id="identifier-content">
             <span id="receipt-id">BON APTX4869</span>
             <span id="cashier-name">KASIR: BUDI</span>
         </div>
-        <span>=========================================</span>
+        <span>====================================</span>
     </div>
     <div id="item-list">
         {#each items as item}
@@ -38,8 +38,8 @@
                 <div id="item-subtotal">{f(item.price * item.qty)}</div>
             </div>
         {/each}
-        <span>-----------------------------------------</span>
-        <span>-----------------------------------------</span>        
+        <span style="letter-spacing: 0.15px;">-----------------------------------</span>
+        <span style="letter-spacing: 0.15px;">-----------------------------------</span>        
     </div>
     <div id="payment-details-container">
         <div id="grand-total" class="payment-details">
@@ -54,34 +54,43 @@
             <span class="payment-details-placeholder">Kembalian</span>
             <span id="payment-details-value">{f(paid - grand_total)}</span>                 
         </div>
-        <span>=========================================</span>
-        <span id="transaction-time">{date} {time} aldymartinus.my.id</span>
-        <span>+---------------------------------------+</span> 
+        <span>====================================</span>
+        <span id="transaction-time">Tgl. {date} {time} bit.ly/app</span>
+        <span style="letter-spacing: 0.16px;">+---------------------------------+</span> 
         <div id="footer-section">
             <span id="footer-text">TERIMA KASIH TELAH BERBELANJA</span>
-            <span>SMS/WA: 081110640888</span>
+            <span>SMS/WA: 081110580888</span>
         </div>
     </div>
 </div>
 
 <style>
+    #change {
+        margin: 0 0 0.15rem 0;
+    }
+
+    #item-list {
+        margin: 0.15rem 0;
+    }
+
     #footer-section {
         display: flex;
         flex-direction: column;
     }
 
     #footer-text {
-        margin: 0 0 0.2rem 0;
+        margin: 0.2rem 0 0.2rem 0;
     }
 
     #transaction-time {
-        word-spacing: 0.5rem;
+        margin: 0.15rem 0;
         display: block;
         width: 100%;
     }
 
     #payment-details-container {
-        width: 66.5mm;
+        margin:  -0.19rem 0 0 0;
+        width: 58mm;
     }
 
     .payment-details {
@@ -90,7 +99,8 @@
     }
 
     #item {
-        width: 66.5mm;
+        margin: 0.1rem 0;
+        width: 58mm;
         display: flex;
         justify-content: space-between;
     }
@@ -125,6 +135,7 @@
     }
 
     #receipt-container {
+        margin: 0 0.6rem 0 0;
         font-size: 0.85rem;
         display: flex;
         align-items: center;
@@ -132,18 +143,20 @@
     }
 
     #identifier-content {
+        margin: 0.15rem 0;        
         display: flex;
         justify-content: space-between;
     }
 
     #receipt-identifier {
+        width: 58mm;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
     #store-name {
-        margin: 3.5rem 0 0 0;
+        margin: 4.5rem 0 0 0;
     }
 
     #address {

@@ -3,9 +3,10 @@
     import Default from "$lib/receipt-template/Default.svelte";
     import March from "$lib/receipt-template/March.svelte";
     import Alps from "$lib/receipt-template/Alps.svelte";
+    import Merpati from "$lib/receipt-template/Merpati.svelte";
 
     let selectedStyle = "Alps";
-    const component = { Default, March, Alps };
+    const component = { Default, March, Alps, Merpati };
 
     onMount(() => {
         print();
