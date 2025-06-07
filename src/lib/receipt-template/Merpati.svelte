@@ -74,22 +74,10 @@
         width: 60mm;
     }
 
-    #payment-details-container {
-    }
-
-    .payment-details {
-        display: flex;
-        justify-content: space-between;
-    }
-
     #item {
         width: 62mm;
         display: flex;
         justify-content: center;
-    }
-
-    #item div {
-        /* border: 1px solid black; */
     }
 
     #item-name {
@@ -121,25 +109,9 @@
         flex-direction: column;
     }
 
-    #identifier-content {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    #receipt-identifier {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
     #store-name {
         white-space: pre-line;
         margin: 3.5rem 0 0 0;
-    }
-
-    #address {
-        white-space: pre-line;
-        margin: 0 0 0.2rem 0;
     }
 
     #receipt-header {

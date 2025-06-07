@@ -4,12 +4,13 @@
     import March from "$lib/receipt-template/March.svelte";
     import Alps from "$lib/receipt-template/Alps.svelte";
     import Merpati from "$lib/receipt-template/Merpati.svelte";
+    import Tabula from "$lib/receipt-template/Tabula.svelte";
 
-    let selectedStyle = "Default";
-    const component = { Default, March, Alps, Merpati };
+    let selectedStyle = "Tabula";
+    const component = { Default, March, Alps, Merpati, Tabula };
 
     onMount(() => {
-        print();
+        // print();
     });
 </script>
 
