@@ -5,7 +5,7 @@
 
     let { checkoutState, currentCart } = $props();
     const currentGT = $derived(
-        currentCart.reduce((acc, n) => acc + n.price, 0),
+        currentCart.reduce((acc, n) => acc + n.price * n.qty, 0),
     );
     let checkoutPrompt;
     let paidAmount;
