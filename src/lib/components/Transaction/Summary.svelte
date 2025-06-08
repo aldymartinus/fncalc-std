@@ -7,7 +7,7 @@
 <div id="cart-summary">
     <span id="item-count">Item count: {currentCart.length}</span>
     <span id="current-gt"
-        >Grand total: {f(currentCart.reduce((acc, n) => acc + n.price, 0))}</span
+        >Grand total: {f(currentCart.reduce((acc, n) => acc + n.price * n.qty, 0))}</span
     >
 </div>
 
