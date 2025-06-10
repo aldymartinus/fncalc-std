@@ -6,8 +6,8 @@
     import Merpati from "$lib/receipt-template/Merpati.svelte";
     import Tabula from "$lib/receipt-template/Tabula.svelte";
 
-    let selectedStyle = "Tabula";
-    const component = { Default, March, Alps, Merpati, Tabula };
+    let selectedStyle = "Alps";
+    const component = { Alps, Default, March, Merpati, Tabula };
 
     onMount(() => {
         // print();

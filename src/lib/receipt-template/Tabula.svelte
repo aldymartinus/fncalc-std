@@ -49,11 +49,19 @@
         </table>
     </div>
     <div id="receipt-footer">
-
+        <span>Hormat Kami,</span>
     </div>
 </div>
 
 <style>
+    #receipt-footer {
+        color: #b0b0b0;
+        padding: 0.2rem 0 0 0;
+        margin: 0.3rem 0.3rem 0 0;
+        height: 5.5rem;
+        border: 1px solid #b0b0b0;
+    }
+
     #receipt-information {
         flex-direction: column;
         display: flex;
@@ -77,7 +85,7 @@
 
     #receipt-container {
         width: 60mm;
-        margin: 3rem 0.7rem 0 0;
+        margin: 3rem 0 0 0rem;
         font-size: 0.8rem;
         display: flex;
         flex-direction: column;

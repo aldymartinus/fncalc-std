@@ -39,6 +39,7 @@
             </div>
         {/each}
         <span style="letter-spacing: 0.15px;">-----------------------------------</span>
+        <br>
         <span style="letter-spacing: 0.15px;">-----------------------------------</span>        
     </div>
     <div id="payment-details-container">
