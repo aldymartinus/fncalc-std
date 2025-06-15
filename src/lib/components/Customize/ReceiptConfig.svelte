@@ -1,6 +1,15 @@
+<script>
+    import { createEventDispatcher } from "svelte";
+    const dispatch = createEventDispatcher();
+
+    const handleModal = () => {
+        dispatch("show-dialog", { state: true });
+    };
+</script>
+
 <div id="config-button-container">
-    <button id="customize-btn">Customize</button>
-    <button id="preview-btn">Preview</button>
+    <button id="customize-btn" onclick={handleModal}>Customize</button>
+    <button id="save-change-btn">Save Change</button>
 </div>
 
 <style>
@@ -15,7 +24,7 @@
         margin: 0 0.2rem 0.2rem 0.2rem;
     }
 
-    #preview-btn {
+    #save-change-btn {
         margin: 0 0.27rem 0.2rem 0;
     }
 
