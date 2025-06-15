@@ -1,4 +1,5 @@
 <script>
+    import Modal from "$lib/components/Customize/Modal.svelte";
     import ReceiptConfig from "$lib/components/Customize/ReceiptConfig.svelte";
     import ThemeSelect from "$lib/components/Customize/ThemeSelect.svelte";
     import Alps from "$lib/receipt-template/Alps.svelte";
@@ -6,19 +7,31 @@
     import Merpati from "$lib/receipt-template/Merpati.svelte";
     import Tabula from "$lib/receipt-template/Tabula.svelte";
 
-    let selectedStyle = 'Alps';
+    let modalState = $state(false);
+    let selectedStyle = $state("Alps");
     const component = { Alps, March, Merpati, Tabula };
 </script>
 
-
 <main>
-    <ThemeSelect bind:selectedStyle on:theme-preview-change={(e) => selectedStyle = e.detail}/>
+    <Modal
+        bind:modalState
+        on:close-dialog={(e) => (modalState = e.detail.state)}
+    />
+    <ThemeSelect
+        bind:selectedStyle
+        on:theme-preview-change={(e) => (selectedStyle = e.detail)}
+    />
     <div id="page-setup">
         <div id="receipt-container">
             <svelte:component this={component[selectedStyle]} />
         </div>
     </div>
-    <ReceiptConfig />
+    <ReceiptConfig
+        bind:modalState
+        on:show-dialog={(e) => {
+            modalState = e.detail.state;
+        }}
+    />
 </main>
 
 <style>
