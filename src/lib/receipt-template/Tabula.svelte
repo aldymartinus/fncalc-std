@@ -3,19 +3,24 @@
 
     const f = (cash) => new Intl.NumberFormat().format(cash);
     let date, time, items, grand_total, paid;
+    let name, short_addr, full_addr, footer_txt, phone;
 
     onMount(() => {
         ({ date, time, items, grand_total, paid } = JSON.parse(
             localStorage.getItem("final-cart"),
         ));
+
+        ({ name, short_addr, full_addr, footer_txt, phone } = JSON.parse(
+            localStorage.getItem("store-info"),
+        ));        
     });
 </script>
 
 <div id="receipt-container">
     <div id="receipt-header">
         <div id="store-information">
-            <span id="store-name"><b>LOREM STORE</b></span>
-            <span id="store-address">Jl. Aspal No. 48</span>
+            <span id="store-name"><b>{name}</b></span>
+            <span id="store-address">{short_addr}</span>
         </div>
         <div id="receipt-information">
             <span></span>

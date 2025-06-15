@@ -3,10 +3,15 @@
 
     const f = (cash) => new Intl.NumberFormat().format(cash);
     let date, time, items, grand_total, paid;
+    let name, short_addr, full_addr, footer_txt, phone;
 
     onMount(() => {
         ({ date, time, items, grand_total, paid } = JSON.parse(
             localStorage.getItem("final-cart"),
+        ));
+
+        ({ name, short_addr, full_addr, footer_txt, phone } = JSON.parse(
+            localStorage.getItem("store-info"),
         ));
 
         items.push({
@@ -26,9 +31,10 @@
 <div id="receipt-container">
     <div id="receipt-header">
         <span id="store-name">
-            WARUNG SATE DAN TONGSENG 
-            PAK BUDI ASLI SOLO 
-            SEJAK TAHUN 1985
+            {name}
+            <br>
+            {short_addr}
+            <br>
         </span>
     </div>
     <span id="transaction-time">TGL {date} {time}</span>
@@ -56,7 +62,7 @@
         {/each}
     </div>
     <div id="footer-section">
-        <span id="footer-text">TERIMA KASIH TELAH BERBELANJA</span>
+        <span id="footer-text">{footer_txt}</span>
     </div> 
 </div>
 

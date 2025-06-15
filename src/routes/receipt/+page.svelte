@@ -10,7 +10,22 @@
     const component = { Alps, Default, March, Merpati, Tabula };
 
     onMount(() => {
-        // print();
+
+    const storeInfo = {
+        name: "LOREM STORE",
+        short_addr: "JL. ASPAL PANAS, NO. 48",
+        full_addr: `JL. ASPAL PANAS, NO. 48
+        RT. 005 RW. 006, DESA SUNGAI DURI
+        KEC. DANAU TOBAT, KAB. PHUNKAB
+        KALIMANTAN BARU, 242229`,
+        footer_txt: "TERIMA KASIH TELAH BERBELANJA",
+        phone: "081234567890",
+    };
+
+    if (localStorage.getItem('store-info') === null) {
+        localStorage.setItem('store-info', JSON.stringify(storeInfo));
+    };
+
     });
 </script>
 
